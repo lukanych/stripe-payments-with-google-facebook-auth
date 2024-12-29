@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+  </head>
+  <body>
+    <div class="sr-root">
+      <div class="sr-main">
+        <section class="container">
+          <div>
+            <h1>User Profile</h1>
+            <h4>Welcome, <span id="user-name"></span>!</h4>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      // Fetch user data from the server
+      fetch('/user-profile')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('user-name').textContent = data.name;
+        });
+    </script>
+  </body>
+</html>
